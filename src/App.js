@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import DS001 from "./DS001";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* ナビゲーション */}
+      <nav className="p-4 bg-slate-800 flex gap-4 text-gray-200">
+        <Link to="/">🏠 Home</Link>
+        <Link to="/ds001">🧠 DS001</Link>
+      </nav>
+
+      {/* ページ切り替え */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/ds001" element={<DS001 />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
